@@ -1,0 +1,62 @@
+.form{
+    input[type=text], input[type=password], input[type=email]{
+        box-sizing: border-box;
+
+        width:100%;
+        margin-bottom: 1em;
+        padding: .8em 1em;
+        
+        border:0;
+        border-radius: .4em;
+        
+        color: $darkGray;
+        font-weight: 300;
+        background: $primaryUltraLight;
+
+
+        &:hover{
+            background: rgba($primaryUltraLight, .5);
+        }
+
+        &:focus{
+            outline: none;
+            box-shadow: 0 2px 1px rgba($primary, .3);
+            transition: .2s;
+        }
+    }
+
+    button{
+        width: 100%;
+        padding: .8em 2em;
+
+        border:0;
+        border-radius: .7em;
+
+        background-color: $primary;
+        color: $white;
+        font-size: 1.2em;
+        box-shadow: 0 2px 10px rgba($primary, .5);
+
+        cursor: pointer;
+        transition: .2s;
+
+        &:hover{
+            background-color: $white;
+            font-size: 1.2em;
+            outline: 1px $primary solid;
+            color: $primary;
+            box-shadow: none;
+            transition: .2s;
+        }
+    }
+
+    div.label{
+        margin: 1em 0;
+    }
+
+    input[type=checkbox]{
+        width:20px;
+        height: 20px;
+        accent-color: $primaryLight;
+    }
+}

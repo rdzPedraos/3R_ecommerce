@@ -1,0 +1,50 @@
+@import 'variables';
+
+body{
+    overflow-y: hidden;
+    font-family: $font;
+    font-weight: 300;
+
+    a{
+        color: $primary;
+        transition: .1s;
+
+
+        &:hover{
+            color: $dark;
+            font-weight: 400;
+            transition: .1s;
+        }
+    }
+
+    .text-primary{ color: $primary; }
+    .text-gray{ color: $darkGray; }
+}
+
+.hr{
+    overflow: hidden;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+
+    span{
+        width:100%;
+        text-align: center;
+        color: $darkGray;
+    }
+
+    &::after, &::before{
+        content: ' ';
+        display:inline-block;
+        width: 100%;
+        height:2px;
+
+        background: $gray;
+    }
+}
+
+@import 'background';
+@import 'header';
+@import 'content';
+@import 'form';
+@import 'moreConfig';

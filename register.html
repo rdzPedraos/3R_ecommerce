@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3R | Registrarse</title>
+
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <script src="https://kit.fontawesome.com/b3d35c6242.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-barba="wrapper">
+    <div class="dot"></div>
+
+    <section class="bg">
+        <div data-barba="container" data-barba-namespace="register">
+            <header>
+                <section>
+                    <ul>
+                        <li><span class="logo">3R.com</span></li>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="#">Quienes somos?</a></li>
+                        <li><a href="#">Contactanos</a></li>
+                    </ul>
+                </section>
+        
+                <section>
+                    <ul>
+                        <li>
+                            <select name="" id="">
+                                <option value="">Español</option>
+                            </select>
+                        </li>
+                        <li><a href="signin.html">Ingresar</a></li>
+                        <li><a href="#" class="btn current">Registrarse</a></li>
+                    </ul>
+                </section>
+            </header>
+    
+            <div class="content">
+                <section class="content-inf">
+                    <h1>Registrate y consigue todo lo que buscas!</h1>
+                    <p>Ya tienes una cuenta? <a href="signin.html"> Ingresa aqui! </a> </p>
+                </section>
+    
+    
+                <section class="content-img">
+                    <div>
+                        <img src="assets/img/avatars/dog.png" alt="">
+                    </div>
+                </section>
+    
+        
+    
+                <section>
+                    <h2 align="center">Registrarse</h2>
+                    <form class="form">
+                        <!-- input -->
+                        <div class="label">
+                            <i class="fa-solid fa-envelope"></i>
+                            <label for="inp-email">Ingrese el correo</label>
+                        </div>
+                        <input type="email" id="inp-email" placeholder="exam@ple.com">
+                        <!--  -->
+    
+    
+                        <!-- input -->
+                        <div class="label">
+                            <i class="fa-solid fa-lock"></i>
+                            <label for="inp-psw">Ingrese la contraseña</label>
+                        </div>
+                        <input type="password" id="inp-psw" placeholder="******">
+                        <!--  -->
+    
+    
+                        <!-- input -->
+                        <div class="label">
+                            <i class="fa-solid fa-lock"></i>
+                            <label for="inp-psw-2">Ingrese nuevamente la contraseña</label>
+                        </div>
+                        <input type="password" id="inp-psw-2" placeholder="******">
+                        <!--  -->
+    
+    
+                        <p style="display:flex; align-items: center; margin-bottom: 3em">
+                            <input type="checkbox" id="conditions">
+                            <label for="conditions" style="margin-left: .5em;">Acepto </label> 
+                            <a href="#" class="text-primary" style="margin-left: .3em;"> términos y condiciones</a>
+                        </p>
+                        <button id="btn-register">Registrarse</button>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/transitions.js"></script>
+    <script src="assets/js/app.js" type="module"></script>
+
+</body>
+</html>
