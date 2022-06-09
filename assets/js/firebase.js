@@ -8,10 +8,15 @@ import {
     FacebookAuthProvider,
     signInWithPopup,
 } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
+import{
+    getFirestore, collection, addDoc, getDocs
+} from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-firestore.js'
 
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
+
 const generateResponse = ()=>{
     return {
         success: false,
@@ -34,7 +39,9 @@ const resForError = (error) => {
 }
 
 
-export const logout = () => signOut(auth);
+export const logout = () => {
+    signOut(auth);
+}
 
 
 
@@ -81,6 +88,59 @@ export const signInAPI = async (service) => {
         await signInWithPopup(auth, provider)
         .then( (data) => res.success = true )
         .catch( (error) => res.msj = resForError(error.code));
+
+    return res;
+}
+
+
+
+export const getData = async (table, matches) => {
+    let res = generateResponse();
+
+    await getDocs(
+        collection(db, table),
+        data
+    )
+    .then( (data) => {
+        res.success = true;
+        res.data = getMatches(data, matches);
+    })
+    .catch( (error) => res.msj = resForError(error.code) );
+
+    return res;
+}
+
+
+
+
+export const getMatches = (data, matches) => {
+    const values = [];
+
+    const isMatch = (record, matches) => {
+        for( const property in matches ) {
+            const match = matches[property];
+
+            if( typeof match == 'object' ) isMatch(record, match);
+            else if( record[property] != match ) return false;
+        }
+        return true;
+    }
+    
+    data.forEach( (record) => { if( isMatch(record, matches) ) values.push(record) });
+    return values;
+}
+
+
+
+export const addData = async (table, data) => {
+    const res = generateResponse();
+
+    await addDoc(
+        collection(db, table),
+        data
+    )
+    .then( (docRef) => res.success = true )
+    .catch( (error) => res.msj = resForError(error.code));
 
     return res;
 }
