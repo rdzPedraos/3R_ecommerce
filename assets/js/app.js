@@ -59,8 +59,8 @@ $(document).on('click', '#btn-signin', async function(e){
 
 
 //----------- Register form:
-const ctaUploadImage = $('#upload-img');
-const inputFile = $('#inp-img');
+const idCtaUploadImg = '#upload-img';
+const idInputFile = '#inp-img';
 
 $(document).on('click', '#btn-register', async function(e){
     e.preventDefault();
@@ -96,7 +96,7 @@ $(document).on('click', '#btn-register', async function(e){
 
         if( success ){
             const path = 'img/'+uid+'/profile';
-            const file = inputFile[0].files[0];
+            const file = $(idInputFile)[0].files[0];
 
             const resImg = await firebase.storage.uploadFiles(path, file);
             if( resImg.success ){
@@ -122,8 +122,9 @@ $(document).on('click', '#btn-register', async function(e){
 });
 
 
-$(document).on('click', '#'+ctaUploadImage.attr('id'), () => inputFile[0].click() );
-$(document).on('change', '#'+inputFile.attr('id'), async function(){
+
+$(document).on('click', idCtaUploadImg, () => $(idInputFile)[0].click() );
+$(document).on('change', idInputFile, async function(){
     const SIZE_MAX = 10//10MB;
     const file = this.files[0];
     let obs = null;
@@ -139,5 +140,5 @@ $(document).on('change', '#'+inputFile.attr('id'), async function(){
         this.value = '';
     }
     else url = URL.createObjectURL(file);
-    ctaUploadImage.css('background-image', 'url('+url+')');
+    $(idCtaUploadImg).css('background-image', 'url('+url+')');
 });
