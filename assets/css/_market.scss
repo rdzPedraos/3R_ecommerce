@@ -1,0 +1,98 @@
+.market{
+    header{
+        background: $primary;
+        padding: .5em 3em;
+
+        section{
+            display: flex;
+            align-items: center;
+
+            button{
+                padding:0 5px;
+                border:0;
+                cursor:pointer;
+            }
+        }
+
+    }
+}
+
+.search{
+    background-color: rgba($white, .9);
+    padding: .6em .4em;
+    border-radius: .2em;
+    margin-left: 1em;
+    
+    input{
+        min-width: 15em;
+        border:0;
+        background: none;
+
+        &:focus{
+            outline: 0;
+        }
+    }
+}
+
+.profile {
+    display: flex;
+    gap: 10px;
+    img{
+        max-height: 30px;
+        cursor: pointer;
+    }
+
+    button{
+        background: none;
+        color: $white;
+
+        &:hover{
+            background-color: rgba($primaryLight, .2)
+        }
+    }
+}
+
+.filters{
+    width: 100%;
+    display: flex;
+    padding: 1.5em 2em;
+    gap: 3em;
+    border-bottom: 2px solid rgba($black, .2);
+
+    div{
+        color: #6D7378;
+        font-weight: 400;
+        cursor: pointer;
+
+
+        .data-value{
+            outline: 3px solid #F0F0F0;
+            padding: 5px 8px;
+            margin-left: .5em;
+        }
+
+        &.currently {
+            color: #000;
+            cursor: auto;
+
+
+            .data-value{
+                background: #F0F0F0;
+                outline: none;
+            }
+        }
+    }
+}
+
+
+.grid-products{
+    display: grid;
+
+    grid-auto-columns: 400px;
+    grid-auto-rows: 300px;
+
+    .card{
+        grid-column: 1;
+        overflow: hidden;
+    }
+}

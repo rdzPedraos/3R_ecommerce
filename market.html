@@ -7,18 +7,64 @@
     <title>3R | Home</title>
 
     <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body>
+<body class="market">
     <header>
         <section class="search">
-            <select name="" id="">
-                <option><i></i></option>
-            </select>
+            <label for="inp-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </label>
+            <input id="inp-search" type="text" placeholder="Buscar producto">
+            <button id="cta-delete-search" style="visibility: hidden;"><i class="fa-solid fa-circle-xmark"></i></button>
         </section>
 
-        <section class="user"></section>
+        <section class="profile">
+            <img src="assets/img/avatar.png" alt="">
+            <button id="btn-logout">Logout</button>
+        </section>
     </header>
-    <button id="btn-logout">Logout</button>
+
+
+    <main>
+        <section class="filters">
+            <div class="currently">
+                <span>Resultados</span>
+                <span class="data-value" id="results">+99</span>
+            </div>
+
+            <div class="">
+                <span>Premium</span>
+                <span class="data-value" id="results">+99</span>
+            </div>
+        </section>
+
+
+        <div class="grid-products">
+            <!-- template -->
+            <div class="card">
+                <div class="card-img">
+                    <img src="assets/img/b.jpg" alt="">
+                </div>
+
+                <div class="card-inf">
+                    <div class="card-profile-img">
+                        <img src="assets/img/avatar.png" alt="">
+                    </div>
+                    <p class="card-product">Product #1</p>
+                    <span class="card-profile-name"2>Juan Rodriguez</span>
+                    <div class="card-price">
+                        <i class="fa-solid fa-sack-dollar"></i>
+                        <span>$ 000.0</span>
+                    </div>
+                </div>
+            </div>
+            <!-- --->
+        </div>
+    </main>
+
+
+    <!-- button id="btn-logout">Logout</button-->
 
 
     <script src="https://kit.fontawesome.com/b3d35c6242.js" crossorigin="anonymous"></script>

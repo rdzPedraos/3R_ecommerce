@@ -30,6 +30,5 @@ export function showModal(config, status = null, callback = () => { }) {
     }
 
     Object.assign(config, preConfig);
-    console.log(config);
     Swal.fire(config).then(callback);
 }

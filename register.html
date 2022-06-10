@@ -55,16 +55,41 @@
         
     
                 <section>
-                    <h2 align="center">Registrarse</h2>
+                    <h2 align="center" style="margin-bottom: 2em;">Registrarse</h2>
                     <form class="form">
-                        <!-- input -->
-                        <div class="label">
-                            <i class="fa-solid fa-envelope"></i>
-                            <label for="inp-email">Ingrese el correo</label>
+                        <div style="display: grid;  grid-template-columns: 1fr 1fr; gap:1em;">
+                            <div>
+                                <!-- input -->
+                                <div class="label" style="margin-top:0">
+                                    <i class="fa-solid fa-user-tag"></i>
+                                    <label for="inp-name">Ingrese su nombre</label>
+                                </div>
+                                <input type="text" id="inp-name" placeholder="Juanito Perez">
+                                <!--  -->
+
+
+                                <!-- input -->
+                                <div class="label">
+                                    <i class="fa-solid fa-envelope"></i>
+                                    <label for="inp-email">Ingrese su correo</label>
+                                </div>
+                                <input type="email" id="inp-email" placeholder="exam@ple.com">
+                                <!--  -->
+                            </div>
+                            
+                            <div>
+                                <!-- field for image -->
+                                <div id="upload-img" class="input-image" style="width:100%; height:100%">
+                                    <div>
+                                        <span> Subir imágen </span>
+                                    </div>
+                                    <input type="file" id="inp-img" accept="image/*" style="display:none">
+                                </div>
+                            </div>
                         </div>
-                        <input type="email" id="inp-email" placeholder="exam@ple.com">
-                        <!--  -->
-    
+                        
+
+                        
     
                         <!-- input -->
                         <div class="label">
@@ -72,15 +97,6 @@
                             <label for="inp-psw">Ingrese la contraseña</label>
                         </div>
                         <input type="password" id="inp-psw" placeholder="******">
-                        <!--  -->
-    
-    
-                        <!-- input -->
-                        <div class="label">
-                            <i class="fa-solid fa-lock"></i>
-                            <label for="inp-psw-2">Ingrese nuevamente la contraseña</label>
-                        </div>
-                        <input type="password" id="inp-psw-2" placeholder="******">
                         <!--  -->
     
     
@@ -99,7 +115,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/transitions.js"></script>
+    <script src="assets/js/barbajs/transitions.js"></script>
     <script src="assets/js/app.js" type="module"></script>
 
 </body>
