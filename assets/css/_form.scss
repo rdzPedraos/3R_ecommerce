@@ -1,5 +1,5 @@
 .form{
-    input[type=text], input[type=password], input[type=email]{
+    input[type=text], input[type=password], input[type=email], input[type=number]{
         box-sizing: border-box;
 
         width:100%;
@@ -62,6 +62,7 @@
 
 
     div.input-image{
+        box-sizing: border-box;
         border: dashed 5px $primary;
         font-weight: 400;
         cursor: pointer;

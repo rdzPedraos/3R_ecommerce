@@ -1,14 +1,15 @@
+$padding-x: 3em;
+
 .market{
     header{
         background: $primary;
-        padding: .5em 3em;
+        padding: 1em $padding-x;
 
         section{
             display: flex;
             align-items: center;
 
             button{
-                padding:0 5px;
                 border:0;
                 cursor:pointer;
             }
@@ -17,37 +18,48 @@
     }
 }
 
-.search{
-    background-color: rgba($white, .9);
-    padding: .6em .4em;
-    border-radius: .2em;
-    margin-left: 1em;
+.section-search{
+    gap: 1em;
+    .search{
+        background-color: rgba($white, .9);
+        padding: .6em 1em;
+        border-radius: .2em;
+        
+        input{
+            padding-left: 1em;
+            min-width: 15em;
+            border:0;
+            background: none;
     
-    input{
-        min-width: 15em;
-        border:0;
-        background: none;
-
-        &:focus{
-            outline: 0;
+            &:focus{
+                outline: 0;
+            }
         }
     }
 }
 
 .profile {
     display: flex;
-    gap: 10px;
+    font-size: 1.2em;
+    gap: .4em;
+    
     img{
+        outline: 2px solid rgba($white, .7);
+        border-radius: 100%;
         max-height: 30px;
         cursor: pointer;
+        &:hover{
+            transform: scale(1.05);
+        }
     }
 
     button{
         background: none;
         color: $white;
+        padding: .5em;
 
         &:hover{
-            background-color: rgba($primaryLight, .2)
+            background-color: rgba($primaryLight, .2);
         }
     }
 }
@@ -55,7 +67,8 @@
 .filters{
     width: 100%;
     display: flex;
-    padding: 1.5em 2em;
+    padding: 1.5em $padding-x;
+    box-sizing: border-box;
     gap: 3em;
     border-bottom: 2px solid rgba($black, .2);
 
@@ -87,12 +100,84 @@
 
 .grid-products{
     display: grid;
+    padding: 2em $padding-x;
 
-    grid-auto-columns: 400px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3em 2em;
     grid-auto-rows: 300px;
 
     .card{
-        grid-column: 1;
         overflow: hidden;
+        
+        .img-product{
+            height: 75%;
+            width: 100%;
+            border-radius: 1em;
+            overflow: hidden;
+
+            img, .bg-showMore{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .bg-showMore{
+                background-color: #0005;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                font-size: 2em;
+                color: $white;
+                font-weight: 400;
+                cursor: pointer;
+            }
+
+
+            &:hover .bg-showMore{
+                position: relative;
+                top: -102%;
+            }
+        }
+        
+
+        .card-inf{
+            display: flex;
+            height: 25%;
+            padding: 1em;
+            box-sizing: border-box;
+            font-size: 15px;
+            
+            align-items: center;
+
+            .img-profile{
+                width: 50px;
+                height: 50px;
+                border-radius: 100%;
+                object-fit: cover;
+
+                &:hover{
+                    transform: scale(1.05);
+                    cursor: pointer;
+                }
+            }
+
+            .description{
+                margin: 0 1em;
+                width: 50%;
+                span{
+                    display: block;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    &.productName{ font-weight: 400;}
+                }
+            }
+
+            .price{
+                width: 100%;
+                text-align: right;
+            }
+        }
     }
 }

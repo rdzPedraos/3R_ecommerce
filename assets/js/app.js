@@ -1,27 +1,17 @@
 import { firebase } from './firebase/firebase.js';
+import { genericFunctions } from './genericFunctions.js';
 import * as modal from './modal/createModal.js';
 
 //Redirección al market.
-const redirect = () => window.location.href = 'market.html';
+const funcs = new genericFunctions('market.html');
 
 //Una vez inicie, validamos que no tengamos una cookie de una sesión abierta.
 $(document).ready( () => {
     const uid = localStorage.getItem('uid');
-    if( uid ) redirect();
+    if( uid ) funcs.redirect();
 });
 
-//Toma la respuesta que arrojamos desde los métodos de firebase, y damos respuestas con modales según convenga:
-const resolveResponse = (res) => {
-    if( res ){
-        let cb = null;
-        if( res.success && res.uid ){
-            localStorage.setItem('uid', res.uid);
-            cb = redirect;
-        }
 
-        modal.showModal({html: res.msj}, res.success ? 'success' : 'error', cb);
-    }
-}
 
 
 $(document).on('click', '[login-service]', async function(){
@@ -37,7 +27,7 @@ $(document).on('click', '[login-service]', async function(){
         else modal.showModal({html: msj}, 'error');
     }
 
-    resolveResponse(res);
+    funcs.resolveResponse(res);
 });
 
 
@@ -51,7 +41,7 @@ $(document).on('click', '#btn-signin', async function(e){
     ];
 
     const res = await firebase.auth.signInUser(email, password);
-    resolveResponse(res);
+    funcs.resolveResponse(res);
 });
 
 
@@ -62,6 +52,29 @@ $(document).on('click', '#btn-signin', async function(e){
 const idCtaUploadImg = '#upload-img';
 const idInputFile = '#inp-img';
 
+$(document).on('click', idCtaUploadImg, () => $(idInputFile)[0].click() );
+$(document).on('change', idInputFile, async function(){
+    const SIZE_MAX = 10//10MB;
+    const file = this.files[0];
+    let obs = null;
+
+
+    if(file.size == 0) obs = 'El tamaño del archivo debe ser mayor a 0.';
+    else if(file.size > SIZE_MAX*1024*1024) obs = 'El tamaño del archivo no puede ser mayor a '+SIZE_MAX+'Mb.';
+    else if(file.type.split('/')[0] != 'image') obs = 'El formato del archivo cargado no es una imágen.';
+
+    let url = '';
+    if( obs ){
+        modal.showModal({text: obs}, 'error');
+        this.value = '';
+    }
+    else url = URL.createObjectURL(file);
+    $(idCtaUploadImg).css('background-image', 'url('+url+')');
+});
+
+
+
+//----------- Register form:
 $(document).on('click', '#btn-register', async function(e){
     e.preventDefault();
 
@@ -113,32 +126,10 @@ $(document).on('click', '#btn-register', async function(e){
         }
         else obs = msj;
 
-        resolveResponse({
+        funcs.resolveResponse({
             success: obs == null,
             uid,
             msj: obs
         });
     }
-});
-
-
-
-$(document).on('click', idCtaUploadImg, () => $(idInputFile)[0].click() );
-$(document).on('change', idInputFile, async function(){
-    const SIZE_MAX = 10//10MB;
-    const file = this.files[0];
-    let obs = null;
-
-
-    if(file.size == 0) obs = 'El tamaño del archivo debe ser mayor a 0.';
-    else if(file.size > SIZE_MAX*1024*1024) obs = 'El tamaño del archivo no puede ser mayor a '+SIZE_MAX+'Mb.';
-    else if(file.type.split('/')[0] != 'image') obs = 'El formato del archivo cargado no es una imágen.';
-
-    let url = '';
-    if( obs ){
-        modal.showModal({text: obs}, 'error');
-        this.value = '';
-    }
-    else url = URL.createObjectURL(file);
-    $(idCtaUploadImg).css('background-image', 'url('+url+')');
 });

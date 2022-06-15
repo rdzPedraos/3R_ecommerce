@@ -11,7 +11,7 @@ const generateResponse = ()=>{
 }
 
 //Storage:
-export class storage{
+export class Storage{
     constructor(app){
         this.storage = getStorage(app);
     }
@@ -32,7 +32,7 @@ export class storage{
     
     async downloadFiles(url){
         const res = generateResponse();
-        const storageRef = ref(storage, url);
+        const storageRef = ref(this.storage, url);
     
         await getDownloadURL(storageRef)
         .then( (url)=>{
