@@ -18,7 +18,7 @@ const resForError = (error)=>{
         case 'auth/invalid-email':          return 'El email ingresado tiene errores';
         case 'auth/internal-error':         return 'El formulario ha sido comprometido. Falta información por diligenciar';
         case 'auth/popup-closed-by-user':   return false;
-        case 'auth/weak-password':          return 'La contraseña ingresada es muy corta'; break;
+        case 'auth/weak-password':          return 'La contraseña ingresada es muy corta';
         case 'auth/wrong-password':
         case 'auth/user-not-found':         return 'contraseña y/o correo incorrecto';
         default:

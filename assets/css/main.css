@@ -285,6 +285,10 @@ header ul .btn.current {
   height: 100%;
 }
 
+.market {
+  overflow-y: auto;
+}
+
 .market header {
   background: #00AF12;
   padding: 1em 3em;
@@ -393,20 +397,42 @@ header ul .btn.current {
   display: -ms-grid;
   display: grid;
   padding: 2em 3em;
-  -ms-grid-columns: (1fr)[4];
-      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-columns: (1fr)[1];
+      grid-template-columns: repeat(1, 1fr);
   gap: 3em 2em;
   grid-auto-rows: 300px;
 }
 
+@media screen and (min-width: 780px) {
+  .grid-products {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .grid-products {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .grid-products {
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 .grid-products .card {
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 1em 1em 0 0;
   overflow: hidden;
 }
 
 .grid-products .card .img-product {
   height: 75%;
   width: 100%;
-  border-radius: 1em;
   overflow: hidden;
 }
 
@@ -440,6 +466,7 @@ header ul .btn.current {
 }
 
 .grid-products .card .card-inf {
+  background: rgba(0, 0, 0, 0.04);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

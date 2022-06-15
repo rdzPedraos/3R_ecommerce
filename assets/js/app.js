@@ -1,5 +1,5 @@
 import { firebase } from './firebase/firebase.js';
-import { genericFunctions } from './genericFunctions.js';
+import { genericFunctions } from './functions/genericFunctions.js';
 import * as modal from './modal/createModal.js';
 
 //Redirección al market.

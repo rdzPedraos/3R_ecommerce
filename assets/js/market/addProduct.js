@@ -3,35 +3,10 @@ import { firebase } from '../firebase/firebase.js';
 import { eventImg } from '../functions/event_img.js';
 
 
-const template = `
-    <div class="form">
-        <div div style="display: grid;  grid-template-columns: 1fr 1fr; gap:1em;">
-            <div>
-                <div class="label">
-                    <i class="fa-solid fa-tag"></i>
-                    <label for="inp-nameProduct">Ingrese el nombre del producto</label>
-                </div>
-                <input type="text" id="inp-productName" placeholder="Tasa de doña Juana">
-
-                <div class="label">
-                    <i class="fa-solid fa-piggy-bank"></i>
-                    <label for="inp-productPrice">Ingrese el precio del articulo</label>
-                </div>
-                <input type="number" id="inp-productPrice" placeholder="000">
-            </div>
-
-            <div>
-                <div id="upload-img" upload-img class="input-image" style="width:100%; height:100%">
-                    <div> <span> Subir imágen </span> </div>
-                    <input type="file" id="inp-img" accept="image/*" style="display:none">
-                </div>
-            </div>
-        </div>
-    </div>
-`;
 
 
 const idInputFile = 'inp-img';
+
 export class addProduct {
     constructor(callBack = null){
         this.showInterfaz(callBack);

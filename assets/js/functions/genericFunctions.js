@@ -1,4 +1,4 @@
-import * as modal from './modal/createModal.js';
+import * as modal from '../modal/createModal.js';
 
 export class genericFunctions{
     constructor(urlRedirect){
